@@ -40,7 +40,26 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
-        
+        const { email, password } = req.body;
+
+        const user = await User.findOne({ email });
+        if(!user) {
+            return res.status(500).json({ message: "Invalid email or password" });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(!isMatch) {
+            return res.status(500).json({ message: "Invalid email or password" });
+        }
+
+        res.json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            profileImageUrl: user.profileImageUrl,
+            token: generateToken(user._id),
+        });
+
     } catch (error) {
         res.status(500).json({ message: "Server error", error: error.message });
     }
@@ -48,7 +67,12 @@ const loginUser = async (req, res) => {
 
 const getUserProfile = async(req, res) => {
     try {
-        
+        const user = await User.findById(req.user.id).select("-password");
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.json(user);
+
     } catch (error) {
         res.status(500).json({ message: "Server error", error: error.message });
     }
