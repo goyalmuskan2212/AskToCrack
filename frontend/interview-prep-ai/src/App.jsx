@@ -7,30 +7,33 @@ import SignUp from './pages/Auth/SignUp';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Home/Dashboard';
 import InterviewPrep from './pages/InterviewPrep/InterviewPrep';
+import UserProvider from './context/userContext';
 
 const App = () => {
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />}></Route>
+    <UserProvider>
+      <div>
+        <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage />}></Route>
 
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/signUp" element={<SignUp />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/interview-prep/:sessionId" element={<InterviewPrep />}></Route>
-        </Routes>
-      </Router>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/signUp" element={<SignUp />}></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/interview-prep/:sessionId" element={<InterviewPrep />}></Route>
+          </Routes>
+        </Router>
 
-      <Toaster
-      toastOptions={{
-        className: "",
-        style: {
-          fontSize: "13px",
-        },
-      }}
-      />
-    </div>
+        <Toaster
+        toastOptions={{
+          className: "",
+          style: {
+            fontSize: "13px",
+          },
+        }}
+        />
+      </div>
+    </UserProvider>
   )
 }
 
