@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import moment from 'moment';
 import { AnimatePresence, motion, number } from 'framer-motion';
 import{ LuCircleAlert, LuList, LuListCollapse } from 'react-icons/lu';
-//import SpinnerLoader from '../../components/Loaders/SpinnerLoader';
 import { toast } from 'react-hot-toast';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -15,6 +14,7 @@ import QuestionCard from '../../components/Cards/QuestionCard';
 import AIResponsePreview from './components/AIResponsePreview';
 import Drawer from '../../components/Drawer';
 import SkeletonLoader from '../../components/Loader/SkeletonLoader';
+import SpinnerLoader from '../../components/Loader/SpinnerLoader';
 
 const InterviewPrep = () => {
 
