@@ -3,7 +3,7 @@ const Question = require("../models/Question");
 
 exports.createSession = async (req,res) => {
     try {
-        const { role, experience, topicToFocus, description, questions } = 
+        const { role, experience, topicsToFocus, description, questions } = 
           req.body;
         const userId = req.user._id;
         
@@ -11,7 +11,7 @@ exports.createSession = async (req,res) => {
             user: userId,
             role,
             experience, 
-            topicToFocus,
+            topicsToFocus,
             description,
         });
 
