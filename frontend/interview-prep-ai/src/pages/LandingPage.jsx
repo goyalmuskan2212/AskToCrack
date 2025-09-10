@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-//import imageFileName from "../assets/file name"
+import HERO_IMG from "../assets/hero-img.png"
 import { APP_FEATURES } from "../utils/data";
 import { useNavigate } from 'react-router-dom';
 import {LuSparkles} from "react-icons/lu"
@@ -85,7 +85,7 @@ const LandingPage = () => {
         <div>
           <section className="flex items-center justify-center -mt-36">
             <img 
-            src="{}" 
+            src={HERO_IMG} 
             alt="Hero Image" 
             className="w-[80vw] rounded-lg"
             />
