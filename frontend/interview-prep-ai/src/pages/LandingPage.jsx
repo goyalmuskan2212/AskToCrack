@@ -35,7 +35,7 @@ const LandingPage = () => {
 
         <header className="flex justify-between items-center mb-16">
           <div className="text-xl text-black font-bold">
-            Interview Prep AI
+            AskToCrack
           </div>
           {user ? (
             <ProfileInfoCard />) : (<button 
