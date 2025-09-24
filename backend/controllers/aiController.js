@@ -1,7 +1,12 @@
 const { GoogleGenAI } = require("@google/genai");
+//const { GoogleGenerativeAI } = require("@google/generative-ai");
+
 const { conceptExplainPrompt, questionAnswerPrompt } = require("../utils/prompts");
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+//const ai = new GoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
+//const model = ai.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
+
 
 const generateInterviewQuestions = async (req, res) => {
     try {
@@ -19,6 +24,10 @@ const generateInterviewQuestions = async (req, res) => {
         });
 
         let rawText = response.text;
+
+        //const response = await model.generateContent(prompt);
+        //let rawText = response.response.text(); // note: text() is a method
+
 
         const cleanedText = rawText
         .replace(/^```json\s*/, "")
@@ -54,6 +63,10 @@ const generateConceptExplanation = async(req, res) => {
         });
 
         let rawText = response.text;
+
+        //const response = await model.generateContent(prompt);
+        //let rawText = response.response.text(); // note: text() is a method
+
 
         const cleanedText = rawText
         .replace(/^```json\s*/, "")

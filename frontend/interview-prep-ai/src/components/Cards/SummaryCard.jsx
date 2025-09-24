@@ -50,7 +50,7 @@ const SummaryCard = ({
             onDelete();
         }}
         >
-            <LuTrash2 />
+            <LuTrash />
         </button>
     </div>
 
